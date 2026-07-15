@@ -69,3 +69,10 @@ client
 
 # Lizard output
 lizard_output.log
+
+# Assignment statement (course material, not redistributed)
+enunciado*.pdf
+
+# Test artifacts
+*.pipe
+server_pid.tmp
