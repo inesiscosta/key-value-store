@@ -22,10 +22,10 @@ CLIENT_OBJS = $(CLIENT_SRC)/api.o $(CLIENT_SRC)/utils.o $(CLIENT_SRC)/parser.o $
 all: $(SERVER_SRC)/kvs $(CLIENT_SRC)/client
 
 $(SERVER_SRC)/kvs: $(COMMON_SRC)/protocol.h $(COMMON_SRC)/constants.h $(SERVER_SRC)/main.c $(SERVER_OBJS)
-	@$(CC) $(CFLAGS) $(SLEEP) -o $@ $^
+	@$(CC) $(CFLAGS) $(SLEEP) -o $@ $(filter %.c %.o,$^)
 
 $(CLIENT_SRC)/client: $(COMMON_SRC)/protocol.h $(COMMON_SRC)/constants.h $(CLIENT_SRC)/main.c $(CLIENT_OBJS)
-	@$(CC) $(CFLAGS) -o $@ $^
+	@$(CC) $(CFLAGS) -o $@ $(filter %.c %.o,$^)
 
 %.o: %.c %.h
 	@$(CC) $(CFLAGS) -c ${@:.o=.c} -o $@
